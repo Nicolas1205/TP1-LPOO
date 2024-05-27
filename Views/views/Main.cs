@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Views.services;
 
 namespace Views.views
 {
@@ -25,11 +26,10 @@ namespace Views.views
             competenciaToolStripMenuItem = new ToolStripMenuItem();
             disciplinaToolStripMenuItem = new ToolStripMenuItem();
             sistemaToolStripMenuItem = new ToolStripMenuItem();
-            label1 = new Label();
             sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
-            atletas_list_label = new Label();
-            competencias_list_l = new Label();
-            competencias_list_label = new Label();
+            usuarios_managment_btn = new Button();
+            atletas_managment_btn = new Button();
+            competiciones_managment_btn = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -82,15 +82,6 @@ namespace Views.views
             sistemaToolStripMenuItem.Size = new Size(145, 22);
             sistemaToolStripMenuItem.Text = "Sistema";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(28, 43);
-            label1.Name = "label1";
-            label1.Size = new Size(145, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Participantes Registrados: ";
-            // 
             // sqliteCommand1
             // 
             sqliteCommand1.CommandTimeout = 30;
@@ -98,38 +89,39 @@ namespace Views.views
             sqliteCommand1.Transaction = null;
             sqliteCommand1.UpdatedRowSource = UpdateRowSource.None;
             // 
-            // atletas_list_label
+            // usuarios_managment_btn
             // 
-            atletas_list_label.AutoSize = true;
-            atletas_list_label.Location = new Point(188, 44);
-            atletas_list_label.Name = "atletas_list_label";
-            atletas_list_label.Size = new Size(0, 15);
-            atletas_list_label.TabIndex = 2;
+            usuarios_managment_btn.Location = new Point(25, 66);
+            usuarios_managment_btn.Name = "usuarios_managment_btn";
+            usuarios_managment_btn.Size = new Size(179, 23);
+            usuarios_managment_btn.TabIndex = 5;
+            usuarios_managment_btn.Text = "Gestion de Usuarios";
+            usuarios_managment_btn.UseVisualStyleBackColor = true;
             // 
-            // competencias_list_l
+            // atletas_managment_btn
             // 
-            competencias_list_l.AutoSize = true;
-            competencias_list_l.Location = new Point(27, 89);
-            competencias_list_l.Name = "competencias_list_l";
-            competencias_list_l.Size = new Size(149, 15);
-            competencias_list_l.TabIndex = 3;
-            competencias_list_l.Text = "Competencias Registradas:";
+            atletas_managment_btn.Location = new Point(25, 109);
+            atletas_managment_btn.Name = "atletas_managment_btn";
+            atletas_managment_btn.Size = new Size(179, 23);
+            atletas_managment_btn.TabIndex = 6;
+            atletas_managment_btn.Text = "Gestion Atletas";
+            atletas_managment_btn.UseVisualStyleBackColor = true;
             // 
-            // competencias_list_label
+            // competiciones_managment_btn
             // 
-            competencias_list_label.AutoSize = true;
-            competencias_list_label.Location = new Point(188, 89);
-            competencias_list_label.Name = "competencias_list_label";
-            competencias_list_label.Size = new Size(0, 15);
-            competencias_list_label.TabIndex = 4;
+            competiciones_managment_btn.Location = new Point(25, 155);
+            competiciones_managment_btn.Name = "competiciones_managment_btn";
+            competiciones_managment_btn.Size = new Size(179, 23);
+            competiciones_managment_btn.TabIndex = 7;
+            competiciones_managment_btn.Text = "Gestion Competiciones";
+            competiciones_managment_btn.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
             ClientSize = new Size(740, 388);
-            Controls.Add(competencias_list_label);
-            Controls.Add(competencias_list_l);
-            Controls.Add(atletas_list_label);
-            Controls.Add(label1);
+            Controls.Add(competiciones_managment_btn);
+            Controls.Add(atletas_managment_btn);
+            Controls.Add(usuarios_managment_btn);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Main";
@@ -147,11 +139,10 @@ namespace Views.views
         private ToolStripMenuItem competenciaToolStripMenuItem;
         private ToolStripMenuItem disciplinaToolStripMenuItem;
         private Microsoft.Data.Sqlite.SqliteCommand sqliteCommand1;
-        private Label atletas_list_label;
         private ToolStripMenuItem sistemaToolStripMenuItem;
-        private Label competencias_list_l;
-        private Label competencias_list_label;
-        private Label label1;
+        private Button usuarios_managment_btn;
+        private Button atletas_managment_btn;
+        private Button competiciones_managment_btn;
 
         private void participanteToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -162,30 +153,6 @@ namespace Views.views
 
         private void Main_Load_1(object sender, EventArgs e)
         {
-            if (Globals.atletas.Count() == 0)
-            {
-                atletas_list_label.Text = "No hay atletas registrados";
-            }
-            else
-            {
-                foreach (var atleta in Globals.atletas)
-                {
-                    atletas_list_label.Text += atleta.Atl_Nombre + ", ";
-                }
-            }
-
-            if (Globals.competencias.Count() == 0)
-            {
-                competencias_list_label.Text = "No hay competencias registrados";
-            }
-            else
-            {
-                foreach (var competencia in Globals.competencias)
-                {
-                    competencias_list_label.Text += competencia.Com_Nombre + ", ";
-                }
-            }
-
         }
 
         private void competenciaToolStripMenuItem_Click(object sender, EventArgs e)

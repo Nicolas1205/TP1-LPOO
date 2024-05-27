@@ -8,18 +8,11 @@ namespace Views
 {
     public partial class Form1 : Form
     {
-        private const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GISELA\Documents\db.mdf;Integrated Security=True;Connect Timeout=30";
+        public const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GISELA\Documents\db.mdf;Integrated Security=True;Connect Timeout=30";
         SqlConnection conn;
 
         public Form1()
         {
-            Globals.usuarios.Add(new(1, "nicolas", "nicolas", "", 1));
-            Globals.usuarios.Add(new(1, "secadora", "secadora", "", 2));
-            Globals.usuarios.Add(new(1, "dumb", "dumb", "", 3));
-            Globals.roles.Add(new(1, "Operador"));
-            Globals.roles.Add(new(2, "Vendedor"));
-            Globals.roles.Add(new(3, "Administrador"));
-
             InitializeComponent();
         }
 
@@ -31,20 +24,32 @@ namespace Views
             {
                 SqlCommand cmd = new(findUserByUsername, conn);
                 conn.Open();
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                try
                 {
-                    reader.Read();
-                    if (reader[2].ToString() == password_textbox.Text)
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        var main = new Main();
-                        main.Show();
-                        this.Hide();
-                        return;
-                    } else
-                    {
+                        reader.Read();
+                        if (reader[2].ToString() == password_textbox.Text)
+                        {
+                            Globals.currentUser.Usu_ID = Int32.Parse(reader[0].ToString());
+                            Globals.currentUser.Usu_NombreUsuario = reader[1].ToString();
+                            Globals.currentUser.Usu_Contraseña= reader[2].ToString();
+                            Globals.currentUser.Usu_ApellidoNombre = reader[3].ToString();
+                            Globals.currentUser.Rol_Codigo = Int32.Parse(reader[4].ToString());
+                            var main = new Main();
+                            main.Show();
+                            this.Hide();
+                            return;
+                        }
                         invalid_credentials_label.Text = "El Nombre de Usuario o Contraseña son incorrectos";
                         invalid_credentials_label.ForeColor = Color.FromName("red");
+
                     }
+                }
+                catch (Exception exp)
+                {
+                    invalid_credentials_label.Text = "El Nombre de Usuario o Contraseña son incorrectos";
+                    invalid_credentials_label.ForeColor = Color.FromName("red");
                 }
             }
         }
@@ -56,7 +61,6 @@ namespace Views
 
     public static class Globals
     {
-        public static List<Usuario> usuarios = new List<Usuario>();
         public static Usuario currentUser = new Usuario();
         public static List<Rol> roles = new List<Rol>();
         public static List<Atleta> atletas = new List<Atleta>();

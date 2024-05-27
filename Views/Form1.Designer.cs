@@ -61,7 +61,7 @@
             // invalid_credentials_label
             // 
             invalid_credentials_label.AutoSize = true;
-            invalid_credentials_label.Location = new Point(352, 29);
+            invalid_credentials_label.Location = new Point(340, 50);
             invalid_credentials_label.Name = "invalid_credentials_label";
             invalid_credentials_label.Size = new Size(0, 15);
             invalid_credentials_label.TabIndex = 4;
