@@ -31,6 +31,7 @@
             password_textbox = new TextBox();
             login_btn = new Button();
             username_textbox = new TextBox();
+            invalid_credentials_label = new Label();
             SuspendLayout();
             // 
             // password_textbox
@@ -57,13 +58,23 @@
             username_textbox.Size = new Size(100, 23);
             username_textbox.TabIndex = 3;
             // 
+            // invalid_credentials_label
+            // 
+            invalid_credentials_label.AutoSize = true;
+            invalid_credentials_label.Location = new Point(352, 29);
+            invalid_credentials_label.Name = "invalid_credentials_label";
+            invalid_credentials_label.Size = new Size(0, 15);
+            invalid_credentials_label.TabIndex = 4;
+            // 
             // Form1
             // 
             ClientSize = new Size(695, 398);
+            Controls.Add(invalid_credentials_label);
             Controls.Add(username_textbox);
             Controls.Add(login_btn);
             Controls.Add(password_textbox);
             Name = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -72,5 +83,6 @@
         private TextBox password_textbox;
         private Button login_btn;
         private TextBox username_textbox;
+        private Label invalid_credentials_label;
     }
 }
