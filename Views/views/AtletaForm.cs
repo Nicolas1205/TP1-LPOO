@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClaseBase;
+using Views.services;
 
 namespace Views.views
 {
@@ -31,20 +32,20 @@ namespace Views.views
         private void register_button_Click(object sender, EventArgs e)
         {
             var new_atleta = new Atleta();
-            Globals.currentSerialId += 1;
-            new_atleta.Atl_ID = Globals.currentSerialId;
+            Random rand = new();
+            new_atleta.Atl_ID = rand.Next(5, 10000);
+            new_atleta.Atl_DNI = dni_textbox.Text;
             new_atleta.Atl_Nombre = nombre_textbox.Text;
             new_atleta.Atl_Apellido = apellido_textbox.Text;
             // Parsing the date string
-            if (birthday_regex.Match(birthday_textbox.Text).Success)
-            {
-                new_atleta.Atl_FechaNac = DateTime.Parse(birthday_textbox.Text);
-
-            }
-            if (email_regex.Match(email_textbox.Text).Success)
-            {
-                new_atleta.Atl_Email = email_textbox.Text;
-            }
+            //if (birthday_regex.Match(birthday_textbox.Text).Success)
+            //{
+            //    new_atleta.Atl_FechaNac = DateTime.Parse(birthday_textbox.Text);
+            //}
+            //if (email_regex.Match(email_textbox.Text).Success)
+            //{
+            //   new_atleta.Atl_Email = email_textbox.Text;
+            //}
 
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
@@ -53,6 +54,7 @@ namespace Views.views
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 Globals.atletas.Add(new_atleta);
+                AtletaService.insertAtleta(new_atleta);
                 success_label.Text = "Se ha registrado correctamente";
                 success_label.ForeColor = Color.FromName("green");
             }

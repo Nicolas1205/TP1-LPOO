@@ -11,15 +11,40 @@ namespace Views.services
 {
     public class AtletaService
     {
-        public void deleteAtleta(Int32 Id)
+        public static void insertAtleta(Atleta atleta)
+        {
+            string query = "INSERT INTO dbo.Atleta (Atl_ID, Atl_DNI, Atl_Apellido, Atl_Nombre) VALUES(@ID, @DNI, @Apellido, @Nombre);";
+            using (SqlConnection conn = new(Views.Form1.ConnectionString))
+            {
+                SqlCommand cmd = new(query, conn);
+                cmd.Parameters.Add("@ID", SqlDbType.Int);
+                cmd.Parameters.Add("@DNI", SqlDbType.VarChar);
+                cmd.Parameters.Add("@Apellido", SqlDbType.VarChar);
+                cmd.Parameters.Add("@Nombre", SqlDbType.VarChar);
+                cmd.Parameters["@ID"].Value = atleta.Atl_ID; 
+                cmd.Parameters["@DNI"].Value = atleta.Atl_DNI; 
+                cmd.Parameters["@Apellido"].Value = atleta.Atl_Apellido; 
+                cmd.Parameters["@Nombre"].Value = atleta.Atl_Nombre; 
+                try
+                {
+                    conn.Open();
+                    Int32 rowsAffected = cmd.ExecuteNonQuery();
+                    Console.WriteLine("RowsAffected: {0}", rowsAffected);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        public static void deleteAtleta(Atleta atleta)
         {
             string query = "DELETE FROM dbo.Atleta WHERE Atl_ID = @Id";
-            Atleta atleta = new();
             using (SqlConnection conn = new(Views.Form1.ConnectionString))
             {
                 SqlCommand cmd = new(query, conn);
                 cmd.Parameters.Add("@Id", SqlDbType.Int);
-                cmd.Parameters["@Id"].Value = Id; 
+                cmd.Parameters["@Id"].Value = atleta.Atl_ID; 
                 try
                 {
                     conn.Open();
@@ -33,7 +58,7 @@ namespace Views.services
             }
 
         }
-        public Atleta getAtletaById(Int32 Id)
+        public static Atleta getAtletaById(Int32 Id)
         {
             string query = "SELECT * FROM dbo.Atleta WHERE Atl_ID = @Id";
             Atleta atleta = new();
@@ -60,7 +85,7 @@ namespace Views.services
             return atleta;
         }
 
-        public List<Atleta> getAllAtletas()
+        public static List<Atleta> getAllAtletas()
         {
             string getAllAtletasQuery = "SELECT * FROM dbo.Atleta";
             List<Atleta> atletas = new();
@@ -91,13 +116,13 @@ namespace Views.services
             return atletas;
         }
 
-        public void updateAtleta(Atleta atleta)
+        public static void updateAtleta(Atleta atleta)
         {
             string updateAtletaById = "UPDATE dbo.Atleta" +
-                "SET Atl_Nombre = @Nombre" +
-                "Atl_Apellido = @Apellido" +
-                "Atl_DNI = @DNI" +
-                "WHERE Atl_ID = @Atl_ID";
+                " SET Atl_Nombre = @Nombre" +
+                " Atl_Apellido = @Apellido" +
+                " Atl_DNI = @DNI" +
+                " WHERE Atl_ID = @Atl_ID";
             using (SqlConnection conn = new(Views.Form1.ConnectionString))
             {
                 SqlCommand cmd = new(updateAtletaById, conn);

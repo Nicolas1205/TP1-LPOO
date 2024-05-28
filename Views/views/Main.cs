@@ -30,6 +30,7 @@ namespace Views.views
             usuarios_managment_btn = new Button();
             atletas_managment_btn = new Button();
             competiciones_managment_btn = new Button();
+            label1 = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -106,6 +107,7 @@ namespace Views.views
             atletas_managment_btn.TabIndex = 6;
             atletas_managment_btn.Text = "Gestion Atletas";
             atletas_managment_btn.UseVisualStyleBackColor = true;
+            atletas_managment_btn.Click += atletas_managment_btn_Click;
             // 
             // competiciones_managment_btn
             // 
@@ -116,9 +118,19 @@ namespace Views.views
             competiciones_managment_btn.Text = "Gestion Competiciones";
             competiciones_managment_btn.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(310, 68);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 8;
+            label1.Text = "label1";
+            // 
             // Main
             // 
             ClientSize = new Size(740, 388);
+            Controls.Add(label1);
             Controls.Add(competiciones_managment_btn);
             Controls.Add(atletas_managment_btn);
             Controls.Add(usuarios_managment_btn);
@@ -142,6 +154,7 @@ namespace Views.views
         private ToolStripMenuItem sistemaToolStripMenuItem;
         private Button usuarios_managment_btn;
         private Button atletas_managment_btn;
+        private Label label1;
         private Button competiciones_managment_btn;
 
         private void participanteToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -153,6 +166,16 @@ namespace Views.views
 
         private void Main_Load_1(object sender, EventArgs e)
         {
+            label1.Text = UsuarioService.getUserRol();
+            if (UsuarioService.getUserRol() != "ADMIN" && UsuarioService.getUserRol() != "AUDITOR")
+            {
+                usuarios_managment_btn.Visible = false;
+            }
+            else if (UsuarioService.getUserRol() != "OPERADOR" && UsuarioService.getUserRol() != "AUDITOR")
+            {
+                atletas_managment_btn.Visible = false;
+                competiciones_managment_btn.Visible = false;
+            }
         }
 
         private void competenciaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -169,5 +192,10 @@ namespace Views.views
             this.Hide();
         }
 
+        private void atletas_managment_btn_Click(object sender, EventArgs e)
+        {
+            var atletasManagmentForm = new AtletasManagmentForm();
+            atletasManagmentForm.Show();
+        }
     }
 }

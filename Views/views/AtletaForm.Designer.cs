@@ -42,6 +42,8 @@
             validemail_label = new Label();
             success_label = new Label();
             sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
+            dni_textbox = new TextBox();
+            dni_label = new Label();
             SuspendLayout();
             // 
             // back_button
@@ -56,21 +58,21 @@
             // 
             // nombre_textbox
             // 
-            nombre_textbox.Location = new Point(345, 84);
+            nombre_textbox.Location = new Point(345, 128);
             nombre_textbox.Name = "nombre_textbox";
             nombre_textbox.Size = new Size(180, 23);
             nombre_textbox.TabIndex = 1;
             // 
             // apellido_textbox
             // 
-            apellido_textbox.Location = new Point(345, 135);
+            apellido_textbox.Location = new Point(345, 187);
             apellido_textbox.Name = "apellido_textbox";
             apellido_textbox.Size = new Size(180, 23);
             apellido_textbox.TabIndex = 2;
             // 
             // birthday_textbox
             // 
-            birthday_textbox.Location = new Point(345, 188);
+            birthday_textbox.Location = new Point(345, 252);
             birthday_textbox.Name = "birthday_textbox";
             birthday_textbox.PlaceholderText = "dd/mm/yyyy";
             birthday_textbox.Size = new Size(180, 23);
@@ -79,7 +81,7 @@
             // 
             // email_textbox
             // 
-            email_textbox.Location = new Point(345, 239);
+            email_textbox.Location = new Point(345, 321);
             email_textbox.Name = "email_textbox";
             email_textbox.PlaceholderText = "johndoe@example.com";
             email_textbox.Size = new Size(180, 23);
@@ -88,7 +90,7 @@
             // 
             // register_button
             // 
-            register_button.Location = new Point(345, 296);
+            register_button.Location = new Point(345, 365);
             register_button.Name = "register_button";
             register_button.Size = new Size(180, 23);
             register_button.TabIndex = 5;
@@ -99,7 +101,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(407, 55);
+            label1.Location = new Point(410, 96);
             label1.Name = "label1";
             label1.Size = new Size(54, 15);
             label1.TabIndex = 6;
@@ -108,7 +110,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(410, 117);
+            label2.Location = new Point(410, 154);
             label2.Name = "label2";
             label2.Size = new Size(51, 15);
             label2.TabIndex = 7;
@@ -117,7 +119,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(380, 170);
+            label3.Location = new Point(380, 225);
             label3.Name = "label3";
             label3.Size = new Size(119, 15);
             label3.TabIndex = 8;
@@ -126,7 +128,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(388, 221);
+            label4.Location = new Point(388, 290);
             label4.Name = "label4";
             label4.Size = new Size(111, 15);
             label4.TabIndex = 9;
@@ -163,11 +165,29 @@
             sqliteCommand1.Transaction = null;
             sqliteCommand1.UpdatedRowSource = System.Data.UpdateRowSource.None;
             // 
+            // dni_textbox
+            // 
+            dni_textbox.Location = new Point(345, 61);
+            dni_textbox.Name = "dni_textbox";
+            dni_textbox.Size = new Size(180, 23);
+            dni_textbox.TabIndex = 13;
+            // 
+            // dni_label
+            // 
+            dni_label.AutoSize = true;
+            dni_label.Location = new Point(419, 37);
+            dni_label.Name = "dni_label";
+            dni_label.Size = new Size(27, 15);
+            dni_label.TabIndex = 14;
+            dni_label.Text = "DNI";
+            // 
             // AtletaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(dni_label);
+            Controls.Add(dni_textbox);
             Controls.Add(success_label);
             Controls.Add(validemail_label);
             Controls.Add(validbirthday_label);
@@ -204,5 +224,7 @@
         private Label validemail_label;
         private Label success_label;
         private Microsoft.Data.Sqlite.SqliteCommand sqliteCommand1;
+        private TextBox dni_textbox;
+        private Label dni_label;
     }
 }
