@@ -8,7 +8,8 @@ namespace Views
 {
     public partial class Form1 : Form
     {
-        public const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GISELA\Documents\db.mdf;Integrated Security=True;Connect Timeout=30";
+        public const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GISELA\code\LPOO\TP1\Views\db.mdf;Integrated Security=True";
+
         SqlConnection conn;
 
         public Form1()
