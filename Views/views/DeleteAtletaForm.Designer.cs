@@ -44,9 +44,10 @@
             // atletas_combobox
             // 
             atletas_combobox.AutoSize = true;
+            atletas_combobox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             atletas_combobox.Location = new Point(305, 97);
             atletas_combobox.Name = "atletas_combobox";
-            atletas_combobox.Size = new Size(157, 15);
+            atletas_combobox.Size = new Size(180, 19);
             atletas_combobox.TabIndex = 1;
             atletas_combobox.Text = "Seleccionar atleta a eliminar:";
             // 

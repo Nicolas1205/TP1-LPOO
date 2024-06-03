@@ -8,7 +8,7 @@ namespace Views
 {
     public partial class Form1 : Form
     {
-        public const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GISELA\code\LPOO\TP1\Views\db.mdf;Integrated Security=True";
+        public const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Lpoo1-TP\Views\db.mdf;Integrated Security=True";
 
         SqlConnection conn;
 
@@ -34,7 +34,7 @@ namespace Views
                         {
                             Globals.currentUser.Usu_ID = Int32.Parse(reader[0].ToString());
                             Globals.currentUser.Usu_NombreUsuario = reader[1].ToString();
-                            Globals.currentUser.Usu_Contraseña= reader[2].ToString();
+                            Globals.currentUser.Usu_Contraseña = reader[2].ToString();
                             Globals.currentUser.Usu_ApellidoNombre = reader[3].ToString();
                             Globals.currentUser.Rol_Codigo = Int32.Parse(reader[4].ToString());
                             var main = new Main();
@@ -58,6 +58,7 @@ namespace Views
         private void Form1_Load(object sender, EventArgs e)
         {
         }
+
     }
 
     public static class Globals

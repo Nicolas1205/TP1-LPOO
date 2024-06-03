@@ -58,39 +58,39 @@
             // 
             // nombre_textbox
             // 
-            nombre_textbox.Location = new Point(345, 128);
+            nombre_textbox.Location = new Point(291, 128);
             nombre_textbox.Name = "nombre_textbox";
-            nombre_textbox.Size = new Size(180, 23);
+            nombre_textbox.Size = new Size(234, 23);
             nombre_textbox.TabIndex = 1;
             // 
             // apellido_textbox
             // 
-            apellido_textbox.Location = new Point(345, 187);
+            apellido_textbox.Location = new Point(291, 187);
             apellido_textbox.Name = "apellido_textbox";
-            apellido_textbox.Size = new Size(180, 23);
+            apellido_textbox.Size = new Size(234, 23);
             apellido_textbox.TabIndex = 2;
             // 
             // birthday_textbox
             // 
-            birthday_textbox.Location = new Point(345, 252);
+            birthday_textbox.Location = new Point(291, 252);
             birthday_textbox.Name = "birthday_textbox";
             birthday_textbox.PlaceholderText = "dd/mm/yyyy";
-            birthday_textbox.Size = new Size(180, 23);
+            birthday_textbox.Size = new Size(234, 23);
             birthday_textbox.TabIndex = 3;
             birthday_textbox.TextChanged += birthday_textbox_TextChanged;
             // 
             // email_textbox
             // 
-            email_textbox.Location = new Point(345, 321);
+            email_textbox.Location = new Point(291, 321);
             email_textbox.Name = "email_textbox";
             email_textbox.PlaceholderText = "johndoe@example.com";
-            email_textbox.Size = new Size(180, 23);
+            email_textbox.Size = new Size(234, 23);
             email_textbox.TabIndex = 4;
             email_textbox.TextChanged += email_textbox_TextChanged;
             // 
             // register_button
             // 
-            register_button.Location = new Point(345, 365);
+            register_button.Location = new Point(591, 375);
             register_button.Name = "register_button";
             register_button.Size = new Size(180, 23);
             register_button.TabIndex = 5;
@@ -101,38 +101,42 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(410, 96);
+            label1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(117, 128);
             label1.Name = "label1";
-            label1.Size = new Size(54, 15);
+            label1.Size = new Size(59, 19);
             label1.TabIndex = 6;
-            label1.Text = "Nombre:";
+            label1.Text = "Nombre";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(410, 154);
+            label2.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(117, 191);
             label2.Name = "label2";
-            label2.Size = new Size(51, 15);
+            label2.Size = new Size(58, 19);
             label2.TabIndex = 7;
             label2.Text = "Apellido";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(380, 225);
+            label3.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(117, 256);
             label3.Name = "label3";
-            label3.Size = new Size(119, 15);
+            label3.Size = new Size(136, 19);
             label3.TabIndex = 8;
             label3.Text = "Fecha de Nacimiento";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(388, 290);
+            label4.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(117, 325);
             label4.Name = "label4";
-            label4.Size = new Size(111, 15);
+            label4.Size = new Size(121, 19);
             label4.TabIndex = 9;
-            label4.Text = "Correo Electronico: ";
+            label4.Text = "Correo Electronico";
             // 
             // validbirthday_label
             // 
@@ -167,17 +171,18 @@
             // 
             // dni_textbox
             // 
-            dni_textbox.Location = new Point(345, 61);
+            dni_textbox.Location = new Point(291, 61);
             dni_textbox.Name = "dni_textbox";
-            dni_textbox.Size = new Size(180, 23);
+            dni_textbox.Size = new Size(234, 23);
             dni_textbox.TabIndex = 13;
             // 
             // dni_label
             // 
             dni_label.AutoSize = true;
-            dni_label.Location = new Point(419, 37);
+            dni_label.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            dni_label.Location = new Point(117, 65);
             dni_label.Name = "dni_label";
-            dni_label.Size = new Size(27, 15);
+            dni_label.Size = new Size(33, 19);
             dni_label.TabIndex = 14;
             dni_label.Text = "DNI";
             // 
