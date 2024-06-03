@@ -32,9 +32,8 @@
             register_atleta_btn = new Button();
             update_atleta_btn = new Button();
             delete_atleta_btn = new Button();
-            atletas_gridview = new DataGridView();
             atletaServiceBindingSource = new BindingSource(components);
-            ((System.ComponentModel.ISupportInitialize)atletas_gridview).BeginInit();
+            atletas_listview = new ListView();
             ((System.ComponentModel.ISupportInitialize)atletaServiceBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -68,34 +67,30 @@
             delete_atleta_btn.UseVisualStyleBackColor = true;
             delete_atleta_btn.Click += delete_atleta_btn_Click;
             // 
-            // atletas_gridview
-            // 
-            atletas_gridview.AutoGenerateColumns = false;
-            atletas_gridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            atletas_gridview.DataSource = atletaServiceBindingSource;
-            atletas_gridview.Location = new Point(75, 33);
-            atletas_gridview.Name = "atletas_gridview";
-            atletas_gridview.RowTemplate.Height = 25;
-            atletas_gridview.Size = new Size(646, 266);
-            atletas_gridview.TabIndex = 3;
-            // 
             // atletaServiceBindingSource
             // 
             atletaServiceBindingSource.DataSource = typeof(services.AtletaService);
+            // 
+            // atletas_listview
+            // 
+            atletas_listview.Location = new Point(142, 39);
+            atletas_listview.Name = "atletas_listview";
+            atletas_listview.Size = new Size(513, 223);
+            atletas_listview.TabIndex = 3;
+            atletas_listview.UseCompatibleStateImageBehavior = false;
             // 
             // AtletasManagmentForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(atletas_gridview);
+            Controls.Add(atletas_listview);
             Controls.Add(delete_atleta_btn);
             Controls.Add(update_atleta_btn);
             Controls.Add(register_atleta_btn);
             Name = "AtletasManagmentForm";
             Text = "AtletasManagmentForm";
             Load += AtletasManagmentForm_Load;
-            ((System.ComponentModel.ISupportInitialize)atletas_gridview).EndInit();
             ((System.ComponentModel.ISupportInitialize)atletaServiceBindingSource).EndInit();
             ResumeLayout(false);
         }
@@ -105,7 +100,7 @@
         private Button register_atleta_btn;
         private Button update_atleta_btn;
         private Button delete_atleta_btn;
-        private DataGridView atletas_gridview;
         private BindingSource atletaServiceBindingSource;
+        private ListView atletas_listview;
     }
 }

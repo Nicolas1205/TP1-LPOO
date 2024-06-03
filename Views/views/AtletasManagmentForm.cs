@@ -32,9 +32,20 @@ namespace Views.views
             BindingSource bindingSource = new();
             bindingSource.DataSource = atletas;
 
-            atletas_gridview.AutoGenerateColumns = false;
-            atletas_gridview.AutoSize = true;
-            atletas_gridview.DataSource = bindingSource;
+            atletas_listview.View = View.Details;
+            atletas_listview.Columns.Add("ID");
+            atletas_listview.Columns.Add("DNI");
+            atletas_listview.Columns.Add("Nombre");
+            atletas_listview.Columns.Add("Apellido");
+
+
+            foreach(var atleta in atletas)
+            {
+                string[] items = { atleta.Atl_ID.ToString(), atleta.Atl_DNI,
+                                   atleta.Atl_Nombre, atleta.Atl_Apellido};
+                atletas_listview.Items.Add(new ListViewItem(items));
+            }
+            atletas_listview.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
         }
 
@@ -49,5 +60,6 @@ namespace Views.views
             var updateAtletaForm = new UpdateAtletaForm();
             updateAtletaForm.Show();
         }
+
     }
 }

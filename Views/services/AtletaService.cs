@@ -119,8 +119,8 @@ namespace Views.services
         public static void updateAtleta(Atleta atleta)
         {
             string updateAtletaById = "UPDATE dbo.Atleta" +
-                " SET Atl_Nombre = @Nombre" +
-                " Atl_Apellido = @Apellido" +
+                " SET Atl_Nombre = @Nombre," +
+                " Atl_Apellido = @Apellido," +
                 " Atl_DNI = @DNI" +
                 " WHERE Atl_ID = @Atl_ID";
             using (SqlConnection conn = new(Views.Form1.ConnectionString))

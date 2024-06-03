@@ -30,9 +30,9 @@
         {
             label1 = new Label();
             atleta_combobox = new ComboBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            dni_textbox = new TextBox();
+            nombre_textbox = new TextBox();
+            apellido_textbox = new TextBox();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -55,27 +55,28 @@
             atleta_combobox.Name = "atleta_combobox";
             atleta_combobox.Size = new Size(204, 23);
             atleta_combobox.TabIndex = 1;
+            atleta_combobox.SelectedIndexChanged += atleta_combobox_SelectedIndexChanged;
             // 
-            // textBox1
+            // dni_textbox
             // 
-            textBox1.Location = new Point(346, 94);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(268, 23);
-            textBox1.TabIndex = 2;
+            dni_textbox.Location = new Point(346, 94);
+            dni_textbox.Name = "dni_textbox";
+            dni_textbox.Size = new Size(268, 23);
+            dni_textbox.TabIndex = 2;
             // 
-            // textBox2
+            // nombre_textbox
             // 
-            textBox2.Location = new Point(346, 154);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(268, 23);
-            textBox2.TabIndex = 3;
+            nombre_textbox.Location = new Point(346, 154);
+            nombre_textbox.Name = "nombre_textbox";
+            nombre_textbox.Size = new Size(268, 23);
+            nombre_textbox.TabIndex = 3;
             // 
-            // textBox3
+            // apellido_textbox
             // 
-            textBox3.Location = new Point(346, 223);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(268, 23);
-            textBox3.TabIndex = 4;
+            apellido_textbox.Location = new Point(346, 223);
+            apellido_textbox.Name = "apellido_textbox";
+            apellido_textbox.Size = new Size(268, 23);
+            apellido_textbox.TabIndex = 4;
             // 
             // label2
             // 
@@ -123,9 +124,9 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(apellido_textbox);
+            Controls.Add(nombre_textbox);
+            Controls.Add(dni_textbox);
             Controls.Add(atleta_combobox);
             Controls.Add(label1);
             Name = "UpdateAtletaForm";
@@ -139,9 +140,9 @@
 
         private Label label1;
         private ComboBox atleta_combobox;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox dni_textbox;
+        private TextBox nombre_textbox;
+        private TextBox apellido_textbox;
         private Label label2;
         private Label label3;
         private Label label4;
