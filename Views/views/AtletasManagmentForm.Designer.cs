@@ -40,7 +40,7 @@
             // 
             // register_atleta_btn
             // 
-            register_atleta_btn.Location = new Point(12, 92);
+            register_atleta_btn.Location = new Point(142, 325);
             register_atleta_btn.Name = "register_atleta_btn";
             register_atleta_btn.Size = new Size(150, 23);
             register_atleta_btn.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // update_atleta_btn
             // 
-            update_atleta_btn.Location = new Point(12, 136);
+            update_atleta_btn.Location = new Point(326, 325);
             update_atleta_btn.Name = "update_atleta_btn";
             update_atleta_btn.Size = new Size(150, 23);
             update_atleta_btn.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             // delete_atleta_btn
             // 
-            delete_atleta_btn.Location = new Point(12, 177);
+            delete_atleta_btn.Location = new Point(505, 325);
             delete_atleta_btn.Name = "delete_atleta_btn";
             delete_atleta_btn.Size = new Size(150, 23);
             delete_atleta_btn.TabIndex = 2;
@@ -73,10 +73,10 @@
             atletas_gridview.AutoGenerateColumns = false;
             atletas_gridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             atletas_gridview.DataSource = atletaServiceBindingSource;
-            atletas_gridview.Location = new Point(209, 53);
+            atletas_gridview.Location = new Point(75, 33);
             atletas_gridview.Name = "atletas_gridview";
             atletas_gridview.RowTemplate.Height = 25;
-            atletas_gridview.Size = new Size(542, 266);
+            atletas_gridview.Size = new Size(646, 266);
             atletas_gridview.TabIndex = 3;
             // 
             // atletaServiceBindingSource

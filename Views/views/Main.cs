@@ -31,6 +31,7 @@ namespace Views.views
             atletas_managment_btn = new Button();
             competiciones_managment_btn = new Button();
             label1 = new Label();
+            label2 = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,34 +54,34 @@ namespace Views.views
             // participanteToolStripMenuItem
             // 
             participanteToolStripMenuItem.Name = "participanteToolStripMenuItem";
-            participanteToolStripMenuItem.Size = new Size(145, 22);
+            participanteToolStripMenuItem.Size = new Size(180, 22);
             participanteToolStripMenuItem.Text = "Participante";
             participanteToolStripMenuItem.Click += participanteToolStripMenuItem_Click_1;
             // 
             // eventoToolStripMenuItem
             // 
             eventoToolStripMenuItem.Name = "eventoToolStripMenuItem";
-            eventoToolStripMenuItem.Size = new Size(145, 22);
+            eventoToolStripMenuItem.Size = new Size(180, 22);
             eventoToolStripMenuItem.Text = "Evento";
             eventoToolStripMenuItem.Click += eventoToolStripMenuItem_Click;
             // 
             // competenciaToolStripMenuItem
             // 
             competenciaToolStripMenuItem.Name = "competenciaToolStripMenuItem";
-            competenciaToolStripMenuItem.Size = new Size(145, 22);
+            competenciaToolStripMenuItem.Size = new Size(180, 22);
             competenciaToolStripMenuItem.Text = "Competencia";
             competenciaToolStripMenuItem.Click += competenciaToolStripMenuItem_Click;
             // 
             // disciplinaToolStripMenuItem
             // 
             disciplinaToolStripMenuItem.Name = "disciplinaToolStripMenuItem";
-            disciplinaToolStripMenuItem.Size = new Size(145, 22);
+            disciplinaToolStripMenuItem.Size = new Size(180, 22);
             disciplinaToolStripMenuItem.Text = "Disciplina";
             // 
             // sistemaToolStripMenuItem
             // 
             sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
-            sistemaToolStripMenuItem.Size = new Size(145, 22);
+            sistemaToolStripMenuItem.Size = new Size(180, 22);
             sistemaToolStripMenuItem.Text = "Sistema";
             // 
             // sqliteCommand1
@@ -92,7 +93,7 @@ namespace Views.views
             // 
             // usuarios_managment_btn
             // 
-            usuarios_managment_btn.Location = new Point(25, 66);
+            usuarios_managment_btn.Location = new Point(64, 121);
             usuarios_managment_btn.Name = "usuarios_managment_btn";
             usuarios_managment_btn.Size = new Size(179, 23);
             usuarios_managment_btn.TabIndex = 5;
@@ -101,7 +102,7 @@ namespace Views.views
             // 
             // atletas_managment_btn
             // 
-            atletas_managment_btn.Location = new Point(25, 109);
+            atletas_managment_btn.Location = new Point(287, 121);
             atletas_managment_btn.Name = "atletas_managment_btn";
             atletas_managment_btn.Size = new Size(179, 23);
             atletas_managment_btn.TabIndex = 6;
@@ -111,7 +112,7 @@ namespace Views.views
             // 
             // competiciones_managment_btn
             // 
-            competiciones_managment_btn.Location = new Point(25, 155);
+            competiciones_managment_btn.Location = new Point(501, 121);
             competiciones_managment_btn.Name = "competiciones_managment_btn";
             competiciones_managment_btn.Size = new Size(179, 23);
             competiciones_managment_btn.TabIndex = 7;
@@ -120,16 +121,26 @@ namespace Views.views
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(310, 68);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(676, 15);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
+            label1.Size = new Size(52, 18);
             label1.TabIndex = 8;
             label1.Text = "label1";
+            // 
+            // label2
+            // 
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(482, 15);
+            label2.Name = "label2";
+            label2.Size = new Size(198, 29);
+            label2.TabIndex = 9;
+            label2.Text = "Tipo de Usuario Ingresado:";
             // 
             // Main
             // 
             ClientSize = new Size(740, 388);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(competiciones_managment_btn);
             Controls.Add(atletas_managment_btn);
@@ -155,6 +166,7 @@ namespace Views.views
         private Button usuarios_managment_btn;
         private Button atletas_managment_btn;
         private Label label1;
+        private Label label2;
         private Button competiciones_managment_btn;
 
         private void participanteToolStripMenuItem_Click_1(object sender, EventArgs e)
