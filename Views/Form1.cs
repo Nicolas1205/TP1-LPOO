@@ -8,7 +8,7 @@ namespace Views
 {
     public partial class Form1 : Form
     {
-        public const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gisela\code\LPOO\TP1\Views\db.mdf;Integrated Security=True";
+        public const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Lpoo1-TP\Views\db.mdf;Integrated Security=True";
 
         SqlConnection conn;
 
