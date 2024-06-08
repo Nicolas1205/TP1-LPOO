@@ -8,23 +8,38 @@ namespace ClaseBase
 {
     public class Categoria
     {
-        // Propiedades con getters y setters automáticos
-        public string Cat_ID { get; set; }
-        public string Cat_Nombre { get; set; }
-        public string Cat_Descripcion { get; set; }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
 
-        // Constructor vacío
-        public Categoria()
+        private static List<Categoria> categorias = new List<Categoria>();
+
+        public static void AgregarCategoria(Categoria categoria)
         {
+            categoria.Id = categorias.Count + 1;
+            categorias.Add(categoria);
         }
 
-        // Constructor con argumentos
-        public Categoria(string catID, string catNombre, string catDescripcion)
+        public static void ActualizarCategoria(Categoria categoria)
         {
-            Cat_ID = catID;
-            Cat_Nombre = catNombre;
-            Cat_Descripcion = catDescripcion;
+            var existingCategoria = categorias.Find(c => c.Id == categoria.Id);
+            if (existingCategoria != null)
+            {
+                existingCategoria.Nombre = categoria.Nombre;
+            }
+        }
+
+        public static void EliminarCategoria(int id)
+        {
+            var categoria = categorias.Find(c => c.Id == id);
+            if (categoria != null)
+            {
+                categorias.Remove(categoria);
+            }
+        }
+
+        public static List<Categoria> ObtenerCategorias()
+        {
+            return new List<Categoria>(categorias);
         }
     }
-
 }
