@@ -8,38 +8,22 @@ namespace ClaseBase
 {
     public class Categoria
     {
-        public int Id { get; set; }
-        public string Nombre { get; set; }
+        public int Cat_ID { get; set; }
+        public string Cat_Nombre { get; set; }
+        public string Cat_Descripcion { get; set; }
 
-        private static List<Categoria> categorias = new List<Categoria>();
+        public Categoria() { }
 
-        public static void AgregarCategoria(Categoria categoria)
+        public Categoria(int id, string nombre, string descripcion)
         {
-            categoria.Id = categorias.Count + 1;
-            categorias.Add(categoria);
+            Cat_ID = id;
+            Cat_Nombre = nombre;
+            Cat_Descripcion = descripcion;
         }
 
-        public static void ActualizarCategoria(Categoria categoria)
+        public override string ToString()
         {
-            var existingCategoria = categorias.Find(c => c.Id == categoria.Id);
-            if (existingCategoria != null)
-            {
-                existingCategoria.Nombre = categoria.Nombre;
-            }
-        }
-
-        public static void EliminarCategoria(int id)
-        {
-            var categoria = categorias.Find(c => c.Id == id);
-            if (categoria != null)
-            {
-                categorias.Remove(categoria);
-            }
-        }
-
-        public static List<Categoria> ObtenerCategorias()
-        {
-            return new List<Categoria>(categorias);
+            return this.Cat_Nombre;
         }
     }
 }

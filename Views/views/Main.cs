@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,6 +27,7 @@ namespace Views.views
             competenciaToolStripMenuItem = new ToolStripMenuItem();
             disciplinaToolStripMenuItem = new ToolStripMenuItem();
             sistemaToolStripMenuItem = new ToolStripMenuItem();
+            categoriasToolStripMenuItem = new ToolStripMenuItem();
             sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
             usuarios_managment_btn = new Button();
             atletas_managment_btn = new Button();
@@ -46,7 +48,7 @@ namespace Views.views
             // 
             // darDeAltaToolStripMenuItem
             // 
-            darDeAltaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { participanteToolStripMenuItem, eventoToolStripMenuItem, competenciaToolStripMenuItem, disciplinaToolStripMenuItem, sistemaToolStripMenuItem });
+            darDeAltaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { participanteToolStripMenuItem, eventoToolStripMenuItem, competenciaToolStripMenuItem, disciplinaToolStripMenuItem, sistemaToolStripMenuItem, categoriasToolStripMenuItem });
             darDeAltaToolStripMenuItem.Name = "darDeAltaToolStripMenuItem";
             darDeAltaToolStripMenuItem.Size = new Size(77, 20);
             darDeAltaToolStripMenuItem.Text = "Dar de Alta";
@@ -83,6 +85,13 @@ namespace Views.views
             sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
             sistemaToolStripMenuItem.Size = new Size(180, 22);
             sistemaToolStripMenuItem.Text = "Sistema";
+            // 
+            // categoriasToolStripMenuItem
+            // 
+            categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+            categoriasToolStripMenuItem.Size = new Size(180, 22);
+            categoriasToolStripMenuItem.Text = "Categorias";
+            categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
             // 
             // sqliteCommand1
             // 
@@ -167,6 +176,7 @@ namespace Views.views
         private Button atletas_managment_btn;
         private Label label1;
         private Label label2;
+        private ToolStripMenuItem categoriasToolStripMenuItem;
         private Button competiciones_managment_btn;
 
         private void participanteToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -208,6 +218,12 @@ namespace Views.views
         {
             var atletasManagmentForm = new AtletasManagmentForm();
             atletasManagmentForm.Show();
+        }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var categoriaForm = new CategoriaForm();
+            categoriaForm.Show();
         }
     }
 }
