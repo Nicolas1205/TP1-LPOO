@@ -8,23 +8,22 @@ namespace ClaseBase
 {
     public class Categoria
     {
-        // Propiedades con getters y setters automáticos
-        public string Cat_ID { get; set; }
+        public int Cat_ID { get; set; }
         public string Cat_Nombre { get; set; }
         public string Cat_Descripcion { get; set; }
 
-        // Constructor vacío
-        public Categoria()
+        public Categoria() { }
+
+        public Categoria(int id, string nombre, string descripcion)
         {
+            Cat_ID = id;
+            Cat_Nombre = nombre;
+            Cat_Descripcion = descripcion;
         }
 
-        // Constructor con argumentos
-        public Categoria(string catID, string catNombre, string catDescripcion)
+        public override string ToString()
         {
-            Cat_ID = catID;
-            Cat_Nombre = catNombre;
-            Cat_Descripcion = catDescripcion;
+            return this.Cat_Nombre;
         }
     }
-
 }
