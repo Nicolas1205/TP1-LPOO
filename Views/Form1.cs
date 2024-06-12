@@ -8,12 +8,14 @@ namespace Views
 {
     public partial class Form1 : Form
     {
-        public const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Lpoo1-TP\Views\db.mdf;Integrated Security=True";
+        public string ConnectionString;
+        public const string DBName = "db.mdf";
 
         SqlConnection conn;
 
         public Form1()
         {
+            this.ConnectionString = Directory.GetCurrentDirectory() + @"\" + DBNAME;
             InitializeComponent();
         }
 
