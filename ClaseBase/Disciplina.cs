@@ -1,36 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ClaseBase
+﻿namespace ClaseBase
 {
     public class Disciplina
     {
-        // Propiedades con getters y setters automáticos
-        public string Dis_ID { get; set; }
+        public int Dis_ID { get; set; }
         public string Dis_Nombre { get; set; }
         public string Dis_Descripcion { get; set; }
 
-        // Constructor vacío
-        public Disciplina()
-        {
-        }
+        public Disciplina() { }
 
-        // Constructor con argumentos
-        public Disciplina(string disID, string disNombre, string disDescripcion)
+        public Disciplina(int id, string nombre, string descripcion)
         {
-            Dis_ID = disID;
-            Dis_Nombre = disNombre;
-            Dis_Descripcion = disDescripcion;
+            Dis_ID = id;
+            Dis_Nombre = nombre;
+            Dis_Descripcion = descripcion;
         }
 
         public override string ToString()
         {
-            return this.Dis_Nombre; 
+            return this.Dis_Nombre;
         }
     }
-
-
 }
