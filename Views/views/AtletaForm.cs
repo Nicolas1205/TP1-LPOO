@@ -89,6 +89,26 @@ namespace Views.views
 
         }
 
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            List<Atleta> atletas = AtletaService.getAllAtletas();
+
+            if (rbtnDNI.Checked)
+            {
+                atletas = atletas.OrderBy(atleta => atleta.Atl_DNI).ToList();
+            }
+            else if (rbtnApellido.Checked)
+            {
+                atletas = atletas.OrderBy(atleta => atleta.Atl_Apellido).ToList();
+            }
+
+            lstAtletas.Items.Clear();
+            foreach (var atleta in atletas)
+            {
+                lstAtletas.Items.Add($"ID: {atleta.Atl_ID}, DNI: {atleta.Atl_DNI}, Nombre: {atleta.Atl_Nombre}, Apellido: {atleta.Atl_Apellido}");
+            }
+        }
+
 
         private void AtletaForm_Load(object sender, EventArgs e)
         {
