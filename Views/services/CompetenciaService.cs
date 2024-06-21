@@ -12,8 +12,8 @@ namespace Views.services
             using (SqlConnection conn = new(Views.Form1.ConnectionString))
             {
                 SqlCommand cmd = new(query, conn);
-                cmd.Parameters.Add("@Id", SqlDbType.Int);
-                cmd.Parameters["@Id"].Value = Com_ID;
+                cmd.Parameters.Add("@Com_ID", SqlDbType.Int);
+                cmd.Parameters["@Com_ID"].Value = Com_ID;
                 try
                 {
                     conn.Open();
@@ -71,7 +71,7 @@ namespace Views.services
         
         public static List<Competencia> getAllCompetencias()
         {
-            string query = "SELECT * FROM dbo.Competencia";
+            string query = "SELECT * FROM dbo.Competencia;";
             List<Competencia> competencias = new();
             using (SqlConnection conn = new(Views.Form1.ConnectionString))
             {
@@ -84,13 +84,13 @@ namespace Views.services
                         while(reader.Read())
                         {
                             Competencia competencia = new();
-                            competencia.Com_ID = (int)reader["Com_ID"];
+                            competencia.Com_ID = Convert.ToInt32(reader["Com_ID"]);
                             competencia.Com_Nombre= reader["Com_Nombre"].ToString();
                             competencia.Com_FechaInicio = DateTime.Parse(reader["Com_FechaInicio"].ToString());
                             competencia.Com_FechaFin = DateTime.Parse(reader["Com_FechaFin"].ToString());
                             competencia.Com_Estado= reader["Com_Estado"].ToString();
-                            competencia.Cat_ID = (int)reader["Cat_ID"];
-                            competencia.Dis_ID = (int)reader["Dis_ID"];
+                            competencia.Cat_ID = Convert.ToInt32(reader["Cat_ID"]);
+                            competencia.Dis_ID = Convert.ToInt32(reader["Dis_ID"]);
                             competencias.Add(competencia);
                         }
                     }
