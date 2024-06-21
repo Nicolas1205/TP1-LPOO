@@ -79,6 +79,7 @@ namespace Views.views
             disciplinaToolStripMenuItem.Name = "disciplinaToolStripMenuItem";
             disciplinaToolStripMenuItem.Size = new Size(180, 22);
             disciplinaToolStripMenuItem.Text = "Disciplina";
+            disciplinaToolStripMenuItem.Click += disciplinaToolStripMenuItem_Click;
             // 
             // sistemaToolStripMenuItem
             // 
@@ -224,6 +225,12 @@ namespace Views.views
         {
             var categoriaForm = new CategoriaForm();
             categoriaForm.Show();
+        }
+
+        private void disciplinaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var disciplinaForm = new DisciplinaForm();
+            disciplinaForm.Show();
         }
     }
 }
