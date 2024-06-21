@@ -15,6 +15,10 @@ namespace ClaseBase
         public DateTime Com_FechaInicio { get; set; }
         public DateTime Com_FechaFin { get; set; }
         public string Com_Estado { get; set; }
+        public int Cat_ID { get; set; }
+        public int Dis_ID { get; set; }
+
+
 
         // Constructor vacío
         public Competencia()
