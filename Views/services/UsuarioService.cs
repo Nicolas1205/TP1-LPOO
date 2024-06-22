@@ -13,24 +13,25 @@ namespace Views.services
     {
         public static List<Usuario> getUsuariosByName(string nombre)
         {
-            string query = "SELECT * FRMO dbo.Usuario WHERE Usu_NombreUsuario LIKE '%@nombre%'";
+            string query = @"SELECT * FROM dbo.Usuario WHERE Usu_NombreUsuario LIKE @SEARCH;";
             List<Usuario> usuarios = new();
             using (SqlConnection conn = new(Views.Form1.ConnectionString))
             {
                 SqlCommand cmd = new(query, conn);
-                cmd.Parameters.Add("@nombre", SqlDbType.VarChar);
-                cmd.Parameters["@nombre"].Value = nombre;
+                cmd.Parameters.Add("@SEARCH", SqlDbType.VarChar);
+                cmd.Parameters["@SEARCH"].Value = "%" + nombre + "%";
                 conn.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while(reader.Read())
                     {
                         Usuario usuario = new();
-                        usuario.Usu_ID = (int)reader[0];
-                        usuario.Usu_NombreUsuario = reader[1].ToString();
-                        usuario.Usu_Contraseña = reader[2].ToString();
-                        usuario.Usu_ApellidoNombre = reader[3].ToString();
-                        usuario.Rol_Codigo = (int)reader[4];
+                        usuario.Usu_ID = Convert.ToInt32(reader["Usu_ID"]);
+                        usuario.Usu_NombreUsuario = reader["Usu_NombreUsuario"].ToString();
+                        usuario.Usu_Contraseña = reader["Usu_Contraseña"].ToString();
+                        usuario.Usu_ApellidoNombre = reader["Usu_ApellidoNombre"].ToString();
+                        usuario.Rol_Codigo = Convert.ToInt32(reader["Rol_Codigo"]);
+                        usuarios.Add(usuario);
                     }
                 }
                 
