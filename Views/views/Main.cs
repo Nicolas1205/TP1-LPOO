@@ -56,41 +56,41 @@ namespace Views.views
             // participanteToolStripMenuItem
             // 
             participanteToolStripMenuItem.Name = "participanteToolStripMenuItem";
-            participanteToolStripMenuItem.Size = new Size(180, 22);
+            participanteToolStripMenuItem.Size = new Size(145, 22);
             participanteToolStripMenuItem.Text = "Participante";
             participanteToolStripMenuItem.Click += participanteToolStripMenuItem_Click_1;
             // 
             // eventoToolStripMenuItem
             // 
             eventoToolStripMenuItem.Name = "eventoToolStripMenuItem";
-            eventoToolStripMenuItem.Size = new Size(180, 22);
+            eventoToolStripMenuItem.Size = new Size(145, 22);
             eventoToolStripMenuItem.Text = "Evento";
             eventoToolStripMenuItem.Click += eventoToolStripMenuItem_Click;
             // 
             // competenciaToolStripMenuItem
             // 
             competenciaToolStripMenuItem.Name = "competenciaToolStripMenuItem";
-            competenciaToolStripMenuItem.Size = new Size(180, 22);
+            competenciaToolStripMenuItem.Size = new Size(145, 22);
             competenciaToolStripMenuItem.Text = "Competencia";
             competenciaToolStripMenuItem.Click += competenciaToolStripMenuItem_Click;
             // 
             // disciplinaToolStripMenuItem
             // 
             disciplinaToolStripMenuItem.Name = "disciplinaToolStripMenuItem";
-            disciplinaToolStripMenuItem.Size = new Size(180, 22);
+            disciplinaToolStripMenuItem.Size = new Size(145, 22);
             disciplinaToolStripMenuItem.Text = "Disciplina";
             disciplinaToolStripMenuItem.Click += disciplinaToolStripMenuItem_Click;
             // 
             // sistemaToolStripMenuItem
             // 
             sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
-            sistemaToolStripMenuItem.Size = new Size(180, 22);
+            sistemaToolStripMenuItem.Size = new Size(145, 22);
             sistemaToolStripMenuItem.Text = "Sistema";
             // 
             // categoriasToolStripMenuItem
             // 
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(180, 22);
+            categoriasToolStripMenuItem.Size = new Size(145, 22);
             categoriasToolStripMenuItem.Text = "Categorias";
             categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
             // 
@@ -109,6 +109,7 @@ namespace Views.views
             usuarios_managment_btn.TabIndex = 5;
             usuarios_managment_btn.Text = "Gestion de Usuarios";
             usuarios_managment_btn.UseVisualStyleBackColor = true;
+            usuarios_managment_btn.Click += usuarios_managment_btn_Click;
             // 
             // atletas_managment_btn
             // 
@@ -231,6 +232,12 @@ namespace Views.views
         {
             var disciplinaForm = new DisciplinaForm();
             disciplinaForm.Show();
+        }
+
+        private void usuarios_managment_btn_Click(object sender, EventArgs e)
+        {
+            var userForm = new UserForm();
+            userForm.Show();
         }
     }
 }
